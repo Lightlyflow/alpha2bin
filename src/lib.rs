@@ -45,10 +45,9 @@ fn str_to_bin(alpha_string: &String) -> Result<String, Box<dyn Error>> {
     println!("Mode: string to binary");
 
     let mut output: String = "".to_string();
-    for word in alpha_string.split_whitespace() {
-        for char in word.to_string().into_bytes() {
-            output += &format!("0{:b} ", char);
-        }
+
+    for char in alpha_string.to_string().into_bytes() {
+        output += &format!("{:08b} ", char);
     }
 
     Ok(output)
